@@ -90,3 +90,39 @@ console.log(producto.obtenerPrecioFinal());
 
 producto.precioBase = 200;
 //RETO 3
+
+//RETO4
+interface RespuestaServidor {
+    status: 'success' | 'error';
+    data?: string[];
+    mensajeError?: string;
+}
+
+function procesarRespuesta(res: RespuestaServidor): void {
+
+    if (res.status === 'success') {
+
+        res.data?.forEach(elemento => {
+            console.log(elemento);
+        });
+
+    } else {
+
+        console.log(res.mensajeError);
+
+    }
+}
+
+const respuestaCorrecta: RespuestaServidor = {
+    status: 'success',
+    data: ['Usuario registrado', 'Correo enviado', 'Proceso finalizado']
+};
+
+const respuestaError: RespuestaServidor = {
+    status: 'error',
+    mensajeError: 'No se ha podido conectar con el servidor'
+};
+
+procesarRespuesta(respuestaCorrecta);
+procesarRespuesta(respuestaError);
+//RETO4
