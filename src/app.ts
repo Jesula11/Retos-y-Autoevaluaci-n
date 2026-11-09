@@ -66,3 +66,27 @@ const nuevasTareas = completarTarea(misTareas, 2);
 console.log('Original:', misTareas);
 console.log('Nuevo:', nuevasTareas);
 //RETO 2
+
+//RETO 3
+class ProductComponent {
+
+    private iva: number = 0.21;
+
+    constructor(
+        public nombreProducto: string,
+        private precioBase: number
+    ) {}
+
+    public obtenerPrecioFinal(): number {
+        return this.precioBase * (1 + this.iva);
+    }
+}
+
+const producto = new ProductComponent('Teclado', 100);
+
+console.log(producto.nombreProducto);
+
+console.log(producto.obtenerPrecioFinal());
+
+producto.precioBase = 200;
+//RETO 3
