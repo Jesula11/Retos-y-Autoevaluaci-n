@@ -91,7 +91,7 @@ console.log(producto.obtenerPrecioFinal());
 producto.precioBase = 200;
 //RETO 3
 
-//RETO4
+//RETO 4
 interface RespuestaServidor {
     status: 'success' | 'error';
     data?: string[];
@@ -125,4 +125,31 @@ const respuestaError: RespuestaServidor = {
 
 procesarRespuesta(respuestaCorrecta);
 procesarRespuesta(respuestaError);
-//RETO4
+//RETO 4
+
+//RETO 5
+class ServicioDatos {
+
+    constructor(public endpoint: string) {}
+
+    conectar(): void {
+        console.log('Conectando a ' + this.endpoint);
+    }
+}
+
+class ServicioUsuarios extends ServicioDatos {
+
+    public entidad: string = 'usuarios';
+
+    constructor(endpoint: string) {
+        super(endpoint);
+    }
+}
+
+const servicio = new ServicioUsuarios('https://api.ejemplo.com');
+
+servicio.conectar();
+
+console.log(servicio.endpoint);
+console.log(servicio.entidad);
+//RETO 5
